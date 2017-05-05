@@ -18,7 +18,8 @@
       
       <guid>https://xweiwei.github.io/post/kernel_debug/</guid>
       <description>在分析Linux的内核CVE，或者是编写相关的POC，有时候可能结果与预期不太符合，这个时候就需要查看内核的运行过程。
-KGDB 编译内核 首先是去https://source.android.com/source/building-kernels下载对应的内核源代码。
+KGDB kgdb提供了一种使用 gdb调试 Linux 内核的机制。使用KGDB可以象调试普通的应用程序那样，在内核中进行设置断点、检查变量值、单步跟踪程序运行等操作。
+编译内核 首先是去https://source.android.com/source/building-kernels下载对应的内核源代码。
 msm对应大部分的nexus以及pixel手机  git clone https://android.googlesource.com/kernel/msm.git 
 下面以nexus5x(bullhead)为例子,生成一个.config
 $ export ARCH=arm64 $ export CROSS_COMPILE=aarch64-linux-android- $ cd msm $ git checkout android-msm-bullhead-3.10-nougat $ make bullhead_defconfig  然后配置.config
