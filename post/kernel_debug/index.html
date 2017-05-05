@@ -1,117 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.20.1" />
+
+    
+    <meta name="theme-color" content="#2d4054">
+    
+
     <meta property="og:title" content="Android内核调试">
+
+    
+    <meta property="og:locale" content="zh_CN" />
+    
+
     
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2017-05-04">
     
-    <meta property="og:description" content="">
+    <meta name="twitter:card" content="summary" />
+
     <meta property="og:url" content="https://xweiwei.github.io/post/kernel_debug/">
     <meta property="og:site_name" content="未知的世界">
+
+    
+    
     
     <meta property="og:tags" content="linux">
     
     <meta property="og:tags" content="debug">
     
-    <meta name="generator" content="Hugo 0.20.1" />
-    <title>Android内核调试 &middot; 未知的世界</title>
+
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="twitter:creator" content="@xweiwei520">
+    
+
+    
+    <meta name="twitter:site" content="@xweiwei520">
+    
+
+    
+
+    
+
+    <title>Android内核调试 &middot; 未知的世界</title>
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css">
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/grids-responsive-min.css">
+    
+    <link rel="stylesheet" href="https://xweiwei.github.io/css/hugo-geo.css">
+
+    
+
+    
+
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
     
-    <link rel="stylesheet" href="https://xweiwei.github.io/css/style.css">
-    
-    <link href="https://xweiwei.github.io/index.xml" rel="alternate" type="application/rss+xml" title="未知的世界" />
-    
-    
-    <link rel="icon" href="https://xweiwei.github.io/favicon.ico" />
-    
 
-    
-    
+    <link rel="icon" href="https://xweiwei.github.io/favicon.ico" />
 </head>
 <body>
+    <div id="fb-root"></div>
+    <div class="hg-container pure-g">
+        <div class="hg-mobile-nav pure-u-1">
+    <div class="hg-site-title">
+        未知的世界
+    </div>
+    <div class="hg-mobile-links">
+        
+            <a class="hg-sidenav-link" href="/">Blog</a>
+        
+            <a class="hg-sidenav-link" href="/tutorial/">Tutorials</a>
+        
+            <a class="hg-sidenav-link" href="about">About</a>
+        
+    </div>
+</div>
+        <div class="hg-sidenav pure-u-1 pure-u-md-1-5">
+    <div class="hg-sidenav-content">
+        <div class="hg-site-title hg-sidenav-item">
+            <a href="https://xweiwei.github.io/">未知的世界</a>
+        </div>
+        
+        <div class="hg-site-subtitle hg-sidenav-item">
+            神的过渡
+        </div>
+         
 
-<nav class="navbar navbar-default navbar-fixed-top visible-xs">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			
-				<a class="navbar-brand" href="https://xweiwei.github.io/">未知的世界</a>
-			
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				
-				
-					<li><a href="https://xweiwei.github.io/about">About</a></li>
-				
-					<li><a href="https://xweiwei.github.io/post/">Blog</a></li>
-				
-					<li><a href="https://xweiwei.github.io/tutorial/">Tutorials</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</nav>
-<div class="container-fluid">
-	<div class="row">
-		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
-	<div id="menu-content" class="vertical-align">
-		
-			<h1 class="text-center"><a href="https://xweiwei.github.io/">未知的世界</a></h1>
-		
-		
-		
-			<small class="text-center center-block">神的过渡</small>
-		
-		
-		
-			<img id="profile-pic" src="https://xweiwei.github.io//img/avatar.png" alt="My Picture" class="img-circle center-block">
-		
-		<div id="social" class="text-center">
-			
-				<a href="https://github.com/xweiwei"><i class="fa fa-github fa-2x"></i></a>
-			
-				<a href="https://twitter.com/xweiwei520"><i class="fa fa-twitter fa-2x"></i></a>
-			
-
-			<a href="mailto:xweiwei520@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
-		</div>
-		<div id="links" class="text-center">
-			
-			
-				<a href="https://xweiwei.github.io/about">About</a>
-			
-				<a href="https://xweiwei.github.io/post/">Blog</a>
-			
-				<a href="https://xweiwei.github.io/tutorial/">Tutorials</a>
-			
-		</div>
-	</div>
+        
+        <img class="hg-sidenav-item hg-profile-pic" src="https://xweiwei.github.io/img/weiwei.png" alt="My Picture">
+        
+        <div class="hg-social hg-sidenav-item">
+            
+                <a href="https://twitter.com/xweiwei520"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            
+                <a href="mailto:xweiwei520@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+                <a href="https://www.github.com/xweiwei"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+        </div>
+        <div class="hg-sidenav-links hg-sidenav-item">
+            
+                <a class="hg-sidenav-link" href="/">Blog</a>
+            
+                <a class="hg-sidenav-link" href="/tutorial/">Tutorials</a>
+            
+                <a class="hg-sidenav-link" href="about">About</a>
+            
+        </div>
+    </div>
 </div>
 
-		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
-			<div class="row">
-				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+        
+<div class="hg-body-container pure-u-1 pure-u-md-3-5">
+    <div class="hg-body">
 
-<main>
-	<header>
-		<h1>Android内核调试</h1>
-	</header>
+        <main>
+            <header>
+                <h1>Android内核调试</h1>
+                <p class="hg-post-date hg-muted">
+                    Published on: 4 May 2017
+                </p>
+                <p class="hg-tag-list hg-muted">
+                    
+    Tags:
+    
+    
+        <a href="https://xweiwei.github.io/tags/linux"><span class="hg-tag">linux</span></a>
+    
+        <a href="https://xweiwei.github.io/tags/debug"><span class="hg-tag">debug</span></a>
+    
 
-	<article>
-		
+                </p>
+                
+            </header>
+            <article>
+                <div class="hidden-mobile">
+                    
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#kgdb">KGDB</a></li>
+<li><a href="#编译内核">编译内核</a></li>
+<li><a href="#gdb调试">GDB调试</a></li>
+<li><a href="#优化问题">优化问题</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</nav>
+</div>
+
+                </div>
+                
 
 <p>在分析Linux的内核CVE，或者是编写相关的POC，有时候可能结果与预期不太符合，这个时候就需要查看内核的运行过程。</p>
 
@@ -262,32 +311,155 @@ include/linux/bug.h:84:21: note: in expansion of macro 'BUILD_BUG_ON_MSG'
 
 <p><a href="http://blog.hibeiyu.com/archives/432">KGDB 在ARM平台上的交叉编译和使用</a></p>
 
-	</article>
-</main>
+            </article>
+        </main>
 
-<div id="bottom-nav" class="text-center center-block">
-	<a href=" https://xweiwei.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+        
+<div class="pure-g hg-bottom-nav">
+    <div class="pure-u-9-24">
+        
+    </div>
+    <div class="pure-u-6-24">
+        <a href="https://xweiwei.github.io/">
+            Home
+        </a>
+    </div>
+    <div class="pure-u-9-24">
+        
+        <a href="https://xweiwei.github.io/post/cve_2016_10229_analysis/">
+            Next: CVE-2016-10229分析
+        </a>
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    <div class="hg-footer pure-g">
+    <div class="hg-footer-socials pure-u-1">
+        <span>Contact:</span>
+        
+        <a href="https://twitter.com/xweiwei520">Twitter</a>
+        
+        <a href="mailto:xweiwei520@gmail.com">E-Mail</a>
+        
+        <a href="https://www.github.com/xweiwei">GitHub</a>
+        
+    </div>
+    
+    <div class="pure-u-1">
+        Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/alexurquhart/hugo-geo" target="_blank">hugo-geo</a> theme
+    </div>
+    
+    
+    <div class="pure-u-1">
+        &copy; Weiwei 2016 - 2017
+    </div>
+    
+    
+</div> 
+
+</div>
+<div class="hg-sidebar pure-u-1 pure-u-md-1-5">
+    
+
+    <div class="hg-sidebar-item">
+        <a class="pure-button hg-block-btn" href="https://xweiwei.github.io/">
+            <i class="fa fa-home"></i>
+            Home
+        </a>
+    </div>
+
+    
+    <div class="hg-sidebar-item">
+        
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#kgdb">KGDB</a></li>
+<li><a href="#编译内核">编译内核</a></li>
+<li><a href="#gdb调试">GDB调试</a></li>
+<li><a href="#优化问题">优化问题</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</nav>
+</div>
+
+    </div>
+    
+
+    
+
+    
 </div>
 
 
+    </div>
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-  </div>
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-  
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-  
-  <script src="https://xweiwei.github.io//js/App.js"></script>
-  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.min.js"></script>
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+    
+
+    
+
+    
+    
+    <script src="https://xweiwei.github.io/js/hugo-geo.js"></script>
+
+    
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+    
+
+
+
+
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+
+    
 </body>
 </html>
