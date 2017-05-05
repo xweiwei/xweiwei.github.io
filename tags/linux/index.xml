@@ -6,10 +6,24 @@
     <description>Recent content in Linux on 未知的世界</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 May 2017 22:03:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 May 2017 22:43:28 +0800</lastBuildDate>
     
 	<atom:link href="https://xweiwei.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CVE-2016-10229分析</title>
+      <link>https://xweiwei.github.io/post/cve_2016_10229_analysis/</link>
+      <pubDate>Fri, 05 May 2017 22:43:28 +0800</pubDate>
+      
+      <guid>https://xweiwei.github.io/post/cve_2016_10229_analysis/</guid>
+      <description>漏洞描述 Linux kernel是美国Linux基金会发布的操作系统Linux所使用的内核。Linux kernel 4.5之前的版本中的udp.c文件存在安全漏洞，Linux内核中的udp.c允许远程攻击者通过UDP流量执行任意代码，这些流量会在执行具有MSG_PEEK标志的recv系统调用时触发不安全的第二次校验和计算，远程攻击者可精心构造数据执行任意代码，进一步导致本地提权，属于高危漏洞。但由于现实情况中，基于UDP协议的服务时MSG_PEEK标志在实际使用的情况较少，受该远程命令执行漏洞危害影响群体范围有限。
+该漏洞是来自谷歌的Eric Dumazet发现的，他说漏洞源于2015年年末的一个Linux内核补丁。
+代码分析 *__skb_recv_datagram里判断peek，会使得skb-&amp;gt;users加1.
+https://android.googlesource.com/kernel/msm/+/android-7.1.2_r0.7/net/core/datagram.c
+194	*peeked = skb-&amp;gt;peeked; 195	if (flags &amp;amp; MSG_PEEK) { 196	if (_off &amp;gt;= skb-&amp;gt;len &amp;amp;&amp;amp; (skb-&amp;gt;len || _off || 197	skb-&amp;gt;peeked)) { 198	_off -= skb-&amp;gt;len; 199	continue; 200	} 201	skb-&amp;gt;peeked = 1; 202	atomic_inc(&amp;amp;skb-&amp;gt;users);  skb_shared(skb)为假，skb被多个对象引用，不会将csum结果存到skb上，所以后面的代码会再次计算。 https://android.googlesource.com/kernel/msm/+/android-7.1.2_r0.7/net/core/datagram.c
+__sum16 __skb_checksum_complete(struct sk_buff *skb) { __wsum csum; __sum16 sum; csum = skb_checksum(skb, 0, skb-&amp;gt;len, 0); /* skb-&amp;gt;csum holds pseudo checksum */ sum = csum_fold(csum_add(skb-&amp;gt;csum, csum)); if (likely(!</description>
+    </item>
     
     <item>
       <title>Android内核调试</title>
