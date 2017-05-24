@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="generator" content="Hugo 0.20.2" />
+
+    
+    <meta name="theme-color" content="#2d4054">
+    
+
+    <meta property="og:title" content="体验tensorflow">
+
+    
+    <meta property="og:locale" content="zh_CN" />
+    
+
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-05-25">
+    
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:url" content="https://xweiwei.github.io/post/tensorflow/">
+    <meta property="og:site_name" content="未知的世界">
+
+    
+    
+    
+    <meta property="og:tags" content="机器学习">
+    
+
+    
+
+    
+
+    
+        
+            <meta property="og:image" content="/path/to/img.png">
+        
+    
+
+    
+    <meta property="og:video" content="/path/to/video.mp4" />
+    
+
+    <title>体验tensorflow &middot; 未知的世界</title>
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css">
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/grids-responsive-min.css">
+    
+    <link rel="stylesheet" href="https://xweiwei.github.io/css/hugo-geo.css">
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    
+
+    <link rel="icon" href="https://xweiwei.github.io/favicon.ico" />
+</head>
+<body>
+    <div id="fb-root"></div>
+    <div class="hg-container pure-g">
+        <div class="hg-mobile-nav pure-u-1">
+    <div class="hg-site-title">
+        未知的世界
+    </div>
+    <div class="hg-mobile-links">
+        
+            <a class="hg-sidenav-link" href="/">Blog</a>
+        
+            <a class="hg-sidenav-link" href="/tutorial/">Tutorials</a>
+        
+            <a class="hg-sidenav-link" href="/about">About</a>
+        
+    </div>
+</div>
+        <div class="hg-sidenav pure-u-1 pure-u-md-1-5">
+    <div class="hg-sidenav-content">
+        <div class="hg-site-title hg-sidenav-item">
+            <a href="https://xweiwei.github.io/">未知的世界</a>
+        </div>
+        
+        <div class="hg-site-subtitle hg-sidenav-item">
+            神的过渡
+        </div>
+         
+
+        
+        <img class="hg-sidenav-item hg-profile-pic" src="https://xweiwei.github.io/img/weiwei.png" alt="My Picture">
+        
+        <div class="hg-social hg-sidenav-item">
+            
+                <a href="https://twitter.com/xweiwei520"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            
+                <a href="mailto:xweiwei520@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+                <a href="https://www.github.com/xweiwei"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+        </div>
+        <div class="hg-sidenav-links hg-sidenav-item">
+            
+                <a class="hg-sidenav-link" href="/">Blog</a>
+            
+                <a class="hg-sidenav-link" href="/tutorial/">Tutorials</a>
+            
+                <a class="hg-sidenav-link" href="/about">About</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+<div class="hg-body-container pure-u-1 pure-u-md-3-5">
+    <div class="hg-body">
+
+        <main>
+            <header>
+                <h1>体验tensorflow</h1>
+                <p class="hg-post-date hg-muted">
+                    Published on: 25 May 2017
+                </p>
+                <p class="hg-tag-list hg-muted">
+                    
+    Tags:
+    
+    
+        <a href="https://xweiwei.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="hg-tag">机器学习</span></a>
+    
+
+                </p>
+                
+                    
+<div class="hg-share-buttons">
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="mailto:?body=https%3A%2F%2Fxweiwei.github.io%2Fpost%2Ftensorflow%2F&amp;subject=%E4%BD%93%E9%AA%8Ctensorflow">
+            <div class="hg-custom-btn">
+                <i class="fa fa-envelope fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="#" onclick="window.print()">
+            <div class="hg-custom-btn">
+                <i class="fa fa-print fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="https://xweiwei.github.io/index.xml" type="application/rss+xml" target="_blank">
+            <div class="hg-custom-btn hg-rss">
+                <i class="fa fa-rss fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <div class="fb-share-button" data-href="https://xweiwei.github.io/post/tensorflow/" data-layout="button"></div>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://xweiwei.github.io/post/tensorflow/" data-show-count="false">Tweet</a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+        <script type="IN/Share" data-url="https://xweiwei.github.io/post/tensorflow/"></script>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <script type="text/javascript">
+            reddit_url = 'https:\/\/xweiwei.github.io\/post\/tensorflow\/';
+            reddit_title = '体验tensorflow';
+            reddit_newwindow='1';
+        </script>
+        <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    </div>
+    
+
+    
+
+    
+</div>
+                
+            </header>
+            <article>
+                <div class="hidden-mobile">
+                    
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#hello-world">Hello World</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+                </div>
+                
+
+<h2 id="安装">安装</h2>
+
+<p>tensorflow提供多种环境的安装方式，具体查看<a href="https://www.tensorflow.org/install/">install</a></p>
+
+<p>我使用的是Ubunt 17.04的环境，因为笔记本是带有NVIDIA的独立显卡的，一直用Ubuntu，独显都是关闭的，这回玩机器学习就可以派上用场了，虽然不是高端显卡，但是总比笔记本的CPU跑的快吧。所以这里接下来安装带显卡的版本。</p>
+
+<p>在<a href="https://github.com/tensorflow/tensorflow">tensorflow</a>的下载最新(2017/5/24)的whl</p>
+
+<pre><code>wget &quot;https://ci.tensorflow.org/view/Nightly/job/nightly-python35-linux-cpu/lastSuccessfulBuild/artifact/pip_test/whl/tensorflow-1.2.0rc0-cp35-cp35m-linux_x86_64.whl&quot;
+sudo pip3 install tensorflow_gpu-1.2.0rc0-cp35-cp35m-linux_x86_64.whl
+</code></pre>
+
+<p>安装nvidia-cuda-toolkit</p>
+
+<pre><code>sudo apt-get install nvidia-cuda-toolkit
+</code></pre>
+
+<p>安装libcudnn
+这个需要去nvidia官网注册账户下载
+我选的是5.1的版本<a href="http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/libcudnn5_5.1.10-1%2Bcuda8.0_amd64.deb?9jGUrECT4vEIctTCghrrlFVawG6MmMwk8vZcMnlZn52_R1pZlETOEcNIdCo6xXy-U5_MlDM1JBmEislL3dG4geAgS4MRrl4Eiw3dUuFaUYMFlohz-21ETOgadcCgAjWuvKyjgi0gS3rw4gp2cjRXsech39MAzttF8sJ8MQsv7dHRpnJlmPJrN66BYEdXCwVgr_x7FaGKoI_aYGQ-22bBRA7E">libcudnn5_5.1.10-1+cuda8.0_amd64.deb</a></p>
+
+<pre><code>wget &quot;http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/libcudnn5_5.1.10-1%2Bcuda8.0_amd64.deb?9jGUrECT4vEIctTCghrrlFVawG6MmMwk8vZcMnlZn52_R1pZlETOEcNIdCo6xXy-U5_MlDM1JBmEislL3dG4geAgS4MRrl4Eiw3dUuFaUYMFlohz-21ETOgadcCgAjWuvKyjgi0gS3rw4gp2cjRXsech39MAzttF8sJ8MQsv7dHRpnJlmPJrN66BYEdXCwVgr_x7FaGKoI_aYGQ-22bBRA7E&quot;
+sudo apt-get install libcudnn5_5.1.10-1+cuda8.0_amd64.deb
+</code></pre>
+
+<h2 id="hello-world">Hello World</h2>
+
+<p>根据官网的列子，这里测试一下</p>
+
+<pre><code>weiwei@Lifar:~/opt/tensorflow$ cat hello_tensorflow.py 
+#!/usr/bin/env python3
+
+import tensorflow as tf
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+
+weiwei@Lifar:~/opt/tensorflow$ ./hello_tensorflow.py 
+2017-05-25 01:10:43.850869: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-25 01:10:43.850903: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-25 01:10:43.850921: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-25 01:10:43.888142: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:893] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-25 01:10:43.888564: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] Found device 0 with properties: 
+name: GeForce GT 645M
+major: 3 minor: 0 memoryClockRate (GHz) 0.78
+pciBusID 0000:01:00.0
+Total memory: 1.95GiB
+Free memory: 157.00MiB
+2017-05-25 01:10:43.888601: I tensorflow/core/common_runtime/gpu/gpu_device.cc:927] DMA: 0 
+2017-05-25 01:10:43.888622: I tensorflow/core/common_runtime/gpu/gpu_device.cc:937] 0:   Y 
+2017-05-25 01:10:43.888652: I tensorflow/core/common_runtime/gpu/gpu_device.cc:996] Creating TensorFlow device (/gpu:0) -&gt; (device: 0, name: GeForce GT 645M, pci bus id: 0000:01:00.0)
+2017-05-25 01:10:43.891299: E tensorflow/stream_executor/cuda/cuda_driver.cc:924] failed to allocate 157.00M (164626432 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+b'Hello, TensorFlow!'
+</code></pre>
+
+<p>运行成功。</p>
+
+<p>不过这里有几个提示，说使用的TensorFlow library 没有使用一些指令集， 但是机器支持这些指令，如果使用的话能提高速度。看来用Google提供的安装包出于兼容的考虑，没有使用这些。下次有机会试试重新再本地编译一个library。</p>
+
+            </article>
+        </main>
+
+        
+<div class="pure-g hg-bottom-nav">
+    <div class="pure-u-9-24">
+        
+        <a href="https://xweiwei.github.io/post/cve_2016_10229_analysis/">
+            Previous: CVE-2016-10229分析
+        </a>
+        
+    </div>
+    <div class="pure-u-6-24">
+        <a href="https://xweiwei.github.io/">
+            Home
+        </a>
+    </div>
+    <div class="pure-u-9-24">
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    <div class="hg-footer pure-g">
+    <div class="hg-footer-socials pure-u-1">
+        <span>Contact:</span>
+        
+        <a href="https://twitter.com/xweiwei520">Twitter</a>
+        
+        <a href="mailto:xweiwei520@gmail.com">E-Mail</a>
+        
+        <a href="https://www.github.com/xweiwei">GitHub</a>
+        
+    </div>
+    
+    <div class="pure-u-1">
+        Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/alexurquhart/hugo-geo" target="_blank">hugo-geo</a> theme
+    </div>
+    
+    
+    <div class="pure-u-1">
+        &copy; Weiwei 2016 - 2017
+    </div>
+    
+    
+</div> 
+
+</div>
+<div class="hg-sidebar pure-u-1 pure-u-md-1-5">
+    
+
+    <div class="hg-sidebar-item">
+        <a class="pure-button hg-block-btn" href="https://xweiwei.github.io/">
+            <i class="fa fa-home"></i>
+            Home
+        </a>
+    </div>
+
+    
+    <div class="hg-sidebar-item">
+        
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#hello-world">Hello World</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+    </div>
+    
+
+    
+
+    
+</div>
+
+
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.min.js"></script>
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+    
+
+    
+
+    
+    
+    <script src="https://xweiwei.github.io/js/hugo-geo.js"></script>
+
+    
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+    
+
+
+
+
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+
+    
+</body>
+</html>
