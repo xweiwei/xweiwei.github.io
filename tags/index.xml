@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>2016 - 2017</copyright>
-    <lastBuildDate>Fri, 05 May 2017 22:43:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jul 2017 10:59:22 +0800</lastBuildDate>
     
 	<atom:link href="https://xweiwei.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Android</title>
       <link>https://xweiwei.github.io/tags/android/</link>
-      <pubDate>Fri, 05 May 2017 22:43:28 +0800</pubDate>
+      <pubDate>Fri, 07 Jul 2017 10:59:22 +0800</pubDate>
       
       <guid>https://xweiwei.github.io/tags/android/</guid>
       <description></description>
@@ -45,6 +45,15 @@
       <pubDate>Fri, 05 May 2017 22:43:28 +0800</pubDate>
       
       <guid>https://xweiwei.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Permission</title>
+      <link>https://xweiwei.github.io/tags/permission/</link>
+      <pubDate>Fri, 07 Jul 2017 10:59:22 +0800</pubDate>
+      
+      <guid>https://xweiwei.github.io/tags/permission/</guid>
       <description></description>
     </item>
     

@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>2016 - 2017</copyright>
-    <lastBuildDate>Thu, 25 May 2017 00:58:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jul 2017 10:59:22 +0800</lastBuildDate>
     
 	<atom:link href="https://xweiwei.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>查看Android设备上的Permission</title>
+      <link>https://xweiwei.github.io/post/android_permission/</link>
+      <pubDate>Fri, 07 Jul 2017 10:59:22 +0800</pubDate>
+      
+      <guid>https://xweiwei.github.io/post/android_permission/</guid>
+      <description>[TOC]
+免责说明 为临时整理的文档，用来快速查阅的。
+Android permission level  normal：低风险权限，只要申请了就可以使用（在AndroidManifest.xml中添加标签），安装时不需要用户确认； dangerous：高风险权限，安装时需要用户的确认才可使用； signature：只有当申请权限的应用程序的数字签名与声明此权限的应用程序的数字签名相同时（如果是申请系统权限，则需要与系统签名相同），才能将权限授给它； signatureOrSystem：签名相同，或者申请权限的应用为系统应用（在system image中）。  上述四类权限级别同样可用于自定义权限中。如果开发者需要对自己的应用程序（或部分应用）进行访问控制，则可以通过在AndroidManifest.xml中添加标签，将其属性中的protectionLevel设置为上述四类级别中的某一种来实现。
+#　查看权限
+adb可以获取到设备上存在的permission信息，一种是通过pm, 另外一种是dumpsys package的方式。 pm获取的信息比较干净，基本就是permission的本身以及和组的联系。 dumpsys package方式获取的就更加的详细，是package与permission相关的信息，更有实用的价值。
+pm 命令获取和permission有关的信息 pm list permission-groups: prints all known permission groups. pm list permissions: prints all known permissions, optionally only those in GROUP. Options: -g: organize by group. -f: print all information.　-s: short summary. -d: only list dangerous permissions. -u: list only the permissions users will see.  查看设备上存在的权限组 weiwei@WPS:~$ adb shell pm list permission-groups permission group:android.</description>
+    </item>
     
     <item>
       <title>体验tensorflow</title>
