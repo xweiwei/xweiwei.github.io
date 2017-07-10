@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="generator" content="Hugo 0.20.1" />
+
+    
+    <meta name="theme-color" content="#2d4054">
+    
+
+    <meta property="og:title" content="Wine 上的IDA安装keypatch plugin">
+
+    
+    <meta property="og:locale" content="zh_CN" />
+    
+
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-10">
+    
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:url" content="https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/">
+    <meta property="og:site_name" content="未知的世界">
+
+    
+    
+    
+
+    
+
+    
+
+    
+        
+            <meta property="og:image" content="/path/to/img.png">
+        
+    
+
+    
+    <meta property="og:video" content="/path/to/video.mp4" />
+    
+
+    <title>Wine 上的IDA安装keypatch plugin &middot; 未知的世界</title>
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css">
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/grids-responsive-min.css">
+    
+    <link rel="stylesheet" href="https://xweiwei.github.io/css/hugo-geo.css">
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    
+
+    <link rel="icon" href="https://xweiwei.github.io/favicon.ico" />
+</head>
+<body>
+    <div id="fb-root"></div>
+    <div class="hg-container pure-g">
+        <div class="hg-mobile-nav pure-u-1">
+    <div class="hg-site-title">
+        未知的世界
+    </div>
+    <div class="hg-mobile-links">
+        
+            <a class="hg-sidenav-link" href="../../">Blog</a>
+        
+            <a class="hg-sidenav-link" href="../../tutorial/">Tutorials</a>
+        
+            <a class="hg-sidenav-link" href="../../about">About</a>
+        
+    </div>
+</div>
+        <div class="hg-sidenav pure-u-1 pure-u-md-1-5">
+    <div class="hg-sidenav-content">
+        <div class="hg-site-title hg-sidenav-item">
+            <a href="https://xweiwei.github.io/">未知的世界</a>
+        </div>
+        
+        <div class="hg-site-subtitle hg-sidenav-item">
+            神的过渡
+        </div>
+         
+
+        
+        <img class="hg-sidenav-item hg-profile-pic" src="https://xweiwei.github.io/img/weiwei.png" alt="My Picture">
+        
+        <div class="hg-social hg-sidenav-item">
+            
+                <a href="https://twitter.com/xweiwei520"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            
+                <a href="mailto:xweiwei520@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            
+                <a href="https://www.github.com/xweiwei"><i class="fa fa-github" aria-hidden="true"></i></a>
+            
+        </div>
+        <div class="hg-sidenav-links hg-sidenav-item">
+            
+                <a class="hg-sidenav-link" href="../../">Blog</a>
+            
+                <a class="hg-sidenav-link" href="../../tutorial/">Tutorials</a>
+            
+                <a class="hg-sidenav-link" href="../../about">About</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+<div class="hg-body-container pure-u-1 pure-u-md-3-5">
+    <div class="hg-body">
+
+        <main>
+            <header>
+                <h1>Wine 上的IDA安装keypatch plugin</h1>
+                <p class="hg-post-date hg-muted">
+                    Published on: 10 July 2017
+                </p>
+                <p class="hg-tag-list hg-muted">
+                    
+                </p>
+                
+                    
+<div class="hg-share-buttons">
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="mailto:?body=https%3A%2F%2Fxweiwei.github.io%2Fpost%2Fkeypatch_intsall_in_wine_ida%2F&amp;subject=Wine&#43;%E4%B8%8A%E7%9A%84IDA%E5%AE%89%E8%A3%85keypatch&#43;plugin">
+            <div class="hg-custom-btn">
+                <i class="fa fa-envelope fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="#" onclick="window.print()">
+            <div class="hg-custom-btn">
+                <i class="fa fa-print fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="https://xweiwei.github.io/index.xml" type="application/rss+xml" target="_blank">
+            <div class="hg-custom-btn hg-rss">
+                <i class="fa fa-rss fa-1"></i>
+            </div>
+        </a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <div class="fb-share-button" data-href="https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/" data-layout="button"></div>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/" data-show-count="false">Tweet</a>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+        <script type="IN/Share" data-url="https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/"></script>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <script type="text/javascript">
+            reddit_url = 'https:\/\/xweiwei.github.io\/post\/keypatch_intsall_in_wine_ida\/';
+            reddit_title = 'Wine 上的IDA安装keypatch plugin';
+            reddit_newwindow='1';
+        </script>
+        <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="hg-share-btn">
+        <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    </div>
+    
+
+    
+
+    
+</div>
+                
+            </header>
+            <article>
+                <div class="hidden-mobile">
+                    
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#keypatch">keypatch</a></li>
+<li><a href="#在wine上安装">在wine上安装</a>
+<ul>
+<li><a href="#安装keystone-python-module">安装keystone python module</a></li>
+<li><a href="#安装keypatch">安装keypatch</a></li>
+<li><a href="#使用">使用</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+                </div>
+                
+
+<h1 id="keypatch">keypatch</h1>
+
+<p><a href="http://www.keystone-engine.org/keypatch/">Keypatch</a>是基于keystone-engine在IDA上的汇编插件，可以直接用汇编字符串修改原来的指令。</p>
+
+<h1 id="在wine上安装">在wine上安装</h1>
+
+<h2 id="安装keystone-python-module">安装keystone python module</h2>
+
+<p>从<a href="http://www.keystone-engine.org/download/">Download</a>下载最新的binary，这里都下32位的binary.
+直接运行安装文件就行，勾选python2.7的版本</p>
+
+<h2 id="安装keypatch">安装keypatch</h2>
+
+<pre><code>cd ${WINE_HOME}/drive_c/Program Files (x86)/IDA 6.8/plugins
+wget &quot;https://raw.githubusercontent.com/keystone-engine/keypatch/master/keypatch.py&quot;
+</code></pre>
+
+<h2 id="使用">使用</h2>
+
+<p>快捷键<strong><code>Crtl+ALT+K</code></strong>
+然后在Assembly上填入相应的指令既可以修改。</p>
+
+            </article>
+        </main>
+
+        
+<div class="pure-g hg-bottom-nav">
+    <div class="pure-u-9-24">
+        
+        <a href="https://xweiwei.github.io/post/android_permission/">
+            Previous: 查看Android设备上的Permission
+        </a>
+        
+    </div>
+    <div class="pure-u-6-24">
+        <a href="https://xweiwei.github.io/">
+            Home
+        </a>
+    </div>
+    <div class="pure-u-9-24">
+        
+    </div>
+</div>
+
+        
+    </div>
+
+    <div class="hg-footer pure-g">
+    <div class="hg-footer-socials pure-u-1">
+        <span>Contact:</span>
+        
+        <a href="https://twitter.com/xweiwei520">Twitter</a>
+        
+        <a href="mailto:xweiwei520@gmail.com">E-Mail</a>
+        
+        <a href="https://www.github.com/xweiwei">GitHub</a>
+        
+    </div>
+    
+    <div class="pure-u-1">
+        Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/alexurquhart/hugo-geo" target="_blank">hugo-geo</a> theme
+    </div>
+    
+    
+    <div class="pure-u-1">
+        &copy; Weiwei 2016 - 2017
+    </div>
+    
+    
+</div> 
+
+</div>
+<div class="hg-sidebar pure-u-1 pure-u-md-1-5">
+    
+
+    <div class="hg-sidebar-item">
+        <a class="pure-button hg-block-btn" href="https://xweiwei.github.io/">
+            <i class="fa fa-home"></i>
+            Home
+        </a>
+    </div>
+
+    
+    <div class="hg-sidebar-item">
+        
+<div class="hg-toc">
+    <h5>Table of Contents</h5>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#keypatch">keypatch</a></li>
+<li><a href="#在wine上安装">在wine上安装</a>
+<ul>
+<li><a href="#安装keystone-python-module">安装keystone python module</a></li>
+<li><a href="#安装keypatch">安装keypatch</a></li>
+<li><a href="#使用">使用</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+    </div>
+    
+
+    
+
+    
+</div>
+
+
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.min.js"></script>
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+    
+
+    
+
+    
+    
+    <script src="https://xweiwei.github.io/js/hugo-geo.js"></script>
+
+    
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+    
+
+
+
+
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+
+    
+</body>
+</html>
