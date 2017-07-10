@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>2016 - 2017</copyright>
-    <lastBuildDate>Fri, 07 Jul 2017 10:59:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jul 2017 12:41:59 +0800</lastBuildDate>
     
 	<atom:link href="https://xweiwei.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wine 上的IDA安装keypatch plugin</title>
+      <link>https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/</link>
+      <pubDate>Mon, 10 Jul 2017 12:41:59 +0800</pubDate>
+      
+      <guid>https://xweiwei.github.io/post/keypatch_intsall_in_wine_ida/</guid>
+      <description>keypatch Keypatch是基于keystone-engine在IDA上的汇编插件，可以直接用汇编字符串修改原来的指令。
+在wine上安装 安装keystone python module 从Download下载最新的binary，这里都下32位的binary. 直接运行安装文件就行，勾选python2.7的版本
+安装keypatch cd ${WINE_HOME}/drive_c/Program Files (x86)/IDA 6.8/plugins wget &amp;quot;https://raw.githubusercontent.com/keystone-engine/keypatch/master/keypatch.py&amp;quot;  使用 快捷键Crtl+ALT+K 然后在Assembly上填入相应的指令既可以修改。</description>
+    </item>
     
     <item>
       <title>查看Android设备上的Permission</title>
