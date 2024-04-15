@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoded Script Example</title>
+</head>
+<body>
+    
+<br><br>
+    <b><a id="index" href="index.html">index</a></b>
+    <div id="log"></div>
+
+
+ <script> 
+
+
+        var logElement = document.getElementById('log');
+
+        function log(message) {
+            logElement.innerHTML += "<br>" + message + "<br>";
+        }
+
+log("abc")
+
+function preOrderApp(msg) {
+   log(msg)
+}
+
+// com.xingin.xhs 000004560728
+
+GmpBridge.preOrderApp('{"name":"000005423481", "preOrder":"Y", "direct":"N"}')
+
+ </script> 
+</body>
+</html>
